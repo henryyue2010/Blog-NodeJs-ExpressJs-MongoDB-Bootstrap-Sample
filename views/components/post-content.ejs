@@ -1,0 +1,50 @@
+
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1><a href="/posts/<%= post._id %>"><%= post.title %></a></h1>
+
+          <span class="meta">Posted by
+                <a href="#"><%= post.author.name %></a>
+                on <%= post.created_at %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row text-justify">
+      <div class="col-lg-8 col-md-10 mx-auto text-justify">
+          <pre class="text-justify"><%- post.content %></pre>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="pull-left">
+
+            <span><i class="fa fa-eye" aria-hidden="true"></i> &nbsp;<%= post.pv %> &nbsp; </span>
+            <span><i class="fa fa-comment" aria-hidden="true"></i> &nbsp;<%= post.commentsCount %></span>
+        </div>
+          <% if (user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
+
+            <div class="pull-right">
+            <span><a class="edit" href="/posts/<%= post._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></span>
+            <span><a class="edit" href="/posts/<%= post._id %>/remove"><i class="fa fa-trash" aria-hidden="true"></i></a></span>
+            </div>
+          <% } %>
+
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>

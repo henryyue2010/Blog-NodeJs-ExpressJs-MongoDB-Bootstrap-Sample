@@ -1,0 +1,65 @@
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <section class="comment-list">
+
+            <% comments.forEach(function (comment) { %>
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                <!--<img class="img-responsive" src="/img/<%= comment.author.avatar %>" />-->
+                <img class="img-responsive" src="/img/avatar-default.jpg" />
+
+                <figcaption class="text-center"><%= comment.author.name %></figcaption>
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                        <div class="comment-user"><i class="fa fa-user"></i> &nbsp;<%= comment.author.name %>
+
+                              <% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
+                          <div class="pull-right"><a href="/posts/<%= post._id %>/comment/<%= comment._id %>/remove" class=""><i class="fa fa-trash" aria-hidden="true"></i> </a></div>
+                              <% } %>
+
+                        </div>
+
+                    <time class="comment-date" datetime="<%= comment.created_at %>"><i class="fa fa-clock-o"></i> &nbsp;<%= comment.created_at %></time>
+                  </header>
+                  <div class="comment-post">
+                    <p><%- comment.content %></p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <% }) %>
+
+        </section>
+
+          <% if (user) { %>
+
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form class="ui reply form" method="post" action="/posts/<%= post._id %>/comment">
+              <div class="form-group">
+                <textarea name="content" class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">Submit</button>
+            </form>
+          </div>
+        </div>
+          <% } %>
+
+      </div>
+    </div>
+  </div>
+
+

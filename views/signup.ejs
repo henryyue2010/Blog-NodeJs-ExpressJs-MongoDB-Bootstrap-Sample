@@ -1,0 +1,37 @@
+<%- include('header') %>
+
+<div class="login-container animated fadeInDown bootstrap snippets">
+  <div class="loginbox bg-white">
+    <div class="loginbox-title">Sign Up</div>
+
+    <div class="loginbox-or">
+      <div class="or-line"></div>
+
+    </div>
+
+        <form method="post" class="ui form segment" enctype="multipart/form-data">
+
+          <div class="loginbox-textbox">
+            <input placeholder="username" name="name" id="signupName" type="text" maxlength="50" class="form-control">
+          </div>
+
+          <div class="loginbox-textbox">
+            <input name="password" id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="password" length="40">
+          </div>
+          <div class="loginbox-textbox">
+            <input name="repassword" placeholder="password again" id="signupPasswordagain" type="password" maxlength="25" class="form-control">
+          </div>
+
+          <div class="loginbox-submit">
+            <input type="submit" class="btn btn-primary btn-block" value="Sign Up">
+          </div>
+
+        </form>
+        <div class="loginbox-signup">
+          <a href="/signin">Sign In</a>
+        </div>
+
+  </div>
+</div>
+
+<%- include('footer') %>
